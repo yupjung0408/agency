@@ -129,6 +129,8 @@ table {
     border-spacing: 0;
 }
 
-img {
+img,
+video,
+iframe {
     vertical-align: top; /* vat */
 }
