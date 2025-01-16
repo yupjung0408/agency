@@ -86,7 +86,7 @@ nav button[type='button'] {
 
 .video-title h2 {
     font-weight: 700;
-    font-size: 7.6rem;
+    font-size: clamp(3.2rem, 3.9583vw, 7.6rem); /* clamp (최소, 추천 , 최대) */
 }
 
 .video-title p {
@@ -94,6 +94,7 @@ nav button[type='button'] {
     font-size: 2rem;
     margin-top: 1rem;
     padding: 0 26.5rem;
+    padding: 0 23.4513%;
 }
 
 .video-title .btn {
@@ -122,6 +123,7 @@ nav button[type='button'] {
 .about {
     /* p8r-0-11.7r */
     padding: 8rem 0 11.7rem;
+    padding: max(8rem, 5vw) 0 max(11.7rem, 10vw);
     text-align: center;
 }
 
@@ -157,6 +159,7 @@ nav button[type='button'] {
 
 .team-slider {
     margin-top: 4rem;
+    width: 118rem;
 }
 
 .team-slider .swiper-wrapper {
@@ -215,6 +218,10 @@ nav button[type='button'] {
     width: 40.678%;
 }
 
+.work-new figure {
+    height: initial;
+}
+
 .work-new h4 {
     font-weight: 700;
     font-size: 2.4rem;
@@ -237,13 +244,15 @@ nav button[type='button'] {
 .work-list li {
     width: 33rem;
     width: 48.5294%;
-    height: 24.2rem;
+    width: calc((100% - 2rem) / 2);
+    /* height: 24.2rem; */
+    height: auto;
 }
 
 .form-wrap {
     width: 48.8rem;
-    width: 41.3559%;
-    height: 5.6rem;
+    /* width: 41.3559%; */
+    height: 5.4rem;
     border: 1px solid var(--main-color);
     border-radius: var(--rds);
 
@@ -253,11 +262,9 @@ nav button[type='button'] {
 }
 
 .form-wrap input {
-    /* width: calc(100% - 21.4rem); */
+    width: calc(100% - 21.4rem);
     padding: 0 2.4rem;
     outline: none; /* 폼요소에 focus가 들어가도 검정 라인이 안 나옴 */
-
-    flex-grow: 1; /* fxg1 : 늘어날 수 있을 때 늘어나라 */
 }
 
 .form-wrap button {
@@ -327,13 +334,6 @@ nav button[type='button'] {
 /* .inner의 크기에 따른 분기점 */
 @media screen and (max-width: 1180px) {
     .inner {
-        width: 90%; /* 임시 */
-    }
-}
-
-/* 태블릿 디자인 */
-@media screen and (max-width: 1024px) {
-    .inner {
         width: 96.4rem;
         width: 94.1406%;
     }
@@ -343,9 +343,20 @@ nav button[type='button'] {
     }
 
     .video-title {
+        width: 94.1406%;
+    }
+
+    .team-slider {
+        width: 100%;
+    }
+}
+
+/* 태블릿 디자인 */
+@media screen and (max-width: 1024px) {
+    .video-title {
         width: 71.4rem;
         width: 69.7266%;
-        background: red;
+        /* background: red; */
     }
 
     .video-title p {
@@ -380,7 +391,7 @@ nav button[type='button'] {
 
     .form-wrap {
         width: 48.8rem;
-        width: 50.6224%;
+        /* width: 50.6224%; */
     }
 
     .map-wrap {
@@ -390,8 +401,12 @@ nav button[type='button'] {
     }
 }
 
-/* 모바일 디자인 */
-@media screen and (max-width: 390px) {
+/* 필요에 의한 분기 추가 */
+@media screen and (max-width: 800px) {
+    :root {
+        font-size: 80%;
+    }
+
     .inner {
         width: 89.7436%; /* 350/390*100 */
     }
@@ -417,14 +432,11 @@ nav button[type='button'] {
 
     .video {
         aspect-ratio: 1/1.3846;
+        background: url(https://www.mstoday.co.kr/news/photo/202401/87670_78316_4053.jpg) no-repeat 50% / cover;
     }
 
     .video-title {
         width: 89.7436%;
-    }
-
-    .video-title h2 {
-        font-size: 3.2rem;
     }
 
     .video-title p {
@@ -432,6 +444,21 @@ nav button[type='button'] {
         padding: 0;
     }
 
+    .video-wrap {
+        aspect-ratio: initial; /* 초기화 */
+        height: 100%;
+
+        /* 이미지를 사용하는 방법 */
+        display: none;
+    }
+
+    .form-wrap {
+        width: 90%;
+    }
+}
+
+/* 모바일 디자인 */
+@media screen and (max-width: 600px) {
     .about figure {
         aspect-ratio: 1; /* 1/1 */
     }
@@ -453,6 +480,10 @@ nav button[type='button'] {
 
     .form-wrap {
         width: 100%;
+    }
+
+    .form-wrap input {
+        width: calc(100% - 8rem);
     }
 
     .form-wrap button {

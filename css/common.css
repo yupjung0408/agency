@@ -43,8 +43,16 @@ a:hover {
     color: var(--main-color);
 }
 
+figure {
+    width: 100%;
+    height: 100%;
+}
+
 img {
     max-width: 100%; /* maxw */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 body {
@@ -52,6 +60,7 @@ body {
     color: var(--text-color);
     word-break: keep-all; /* wbka: 어절 단위 줄바꿈 */
     text-transform: capitalize; /* ttc: 영문,첫 시작 글자 대문자 */
+    min-width: 320px;
 }
 
 .inner {
